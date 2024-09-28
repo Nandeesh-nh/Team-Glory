@@ -90,9 +90,7 @@ app.get("/" , (req,res)=>{
 app.use("/",userRouter);
 app.use("/wardrobe", wardrobeRoutes);
 
-app.all('*',(req,res,next)=>{
-    next(new ExpressError(404,"page not found!"));
-});
+
 
 app.use((err,req,res,next)=>{
     let {statusCode=500,message="async function error"}=err;
@@ -101,6 +99,7 @@ app.use((err,req,res,next)=>{
     
     // res.status(statusCode).send(message);
 })
+
 
 app.listen(8080,()=>{ 
     console.log("listening to port 8080");

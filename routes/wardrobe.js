@@ -87,4 +87,15 @@ router.post('/remove/:id', isLoggedIn, async (req, res) => {
     }
   });  
 
+  router.get('/donated', isLoggedIn, async (req, res) => {
+    try {
+      const donatedItems = await WardrobeItem.find({ donated: true }).populate('userId');
+       // Fetch donated items with user email
+  
+      res.render('./pages/donatedItems.ejs', { donatedItems }); // Render items in the view
+    } catch (err) {
+      res.status(500).send("Error fetching donated items");
+    }
+  });
+
 module.exports = router;
