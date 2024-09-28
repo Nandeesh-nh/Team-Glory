@@ -29,8 +29,8 @@
           <h2 style="color: #3c3c3ce1; margin-bottom: 0px;">Hi, <%=data.user.username%></h2>
           <p style="margin-top: 1px;"><%=data.user.email %></p>
           <p><strong>Total Items:</strong> <%= data.totalItems %></p>
-          <p><strong>Most Used Item:</strong> <%= data.mostUsedItem.name %> (Used <%= data.mostUsedItem.usageCount %> times)</p>
-          <p><strong>Least Used Item:</strong> <%= data.leastUsedItem.name %> (Used <%= data.leastUsedItem.usageCount %> time)</p>
+          <p><strong>Most Used Item:</strong> <%= data.mostUsedItem.name %> (Used <%= data.mostUsedItem.usage %> times)</p>
+          <p><strong>Least Used Item:</strong> <%= data.leastUsedItem.name %> (Used <%= data.leastUsedItem.usage %> time)</p>
         </div>
       </div>
 
@@ -66,9 +66,89 @@
     </div>
 
   </div>
-  <script>
-     const sustainabilityScoreValue = 78;
-  </script>
-  <script src="javascripts/dashboard.js"></script>
+
+     <script>
+  // Get the context of the canvas element for the category breakdown chart
+  const ctx = document.getElementById('categoryChart').getContext('2d');
+  const ptx = document.getElementById('sustainabilityChart').getContext('2d');
+
+  // Data passed from the server
+  const categoryData = <%- JSON.stringify(data.categoryBreakdown) %>;
+  const sustainabilityScoreValue = <%= data.sustainabilityScore %>;
+
+  // Prepare data for category chart
+  const categoryLabels = Object.keys(categoryData);
+  const categoryValues = Object.values(categoryData);
+  
+  // Create the category chart
+  const categoryChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: categoryLabels,
+      datasets: [{
+        data: categoryValues,
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
+      }],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+      },
+    },
+  });
+
+  // Custom function to create the doughnut chart with shadows
+  function drawDoughnutWithShadow(ptx, data) {
+    const chart = new Chart(ptx, {
+      type: 'doughnut', // Use doughnut type for a circular progress bar
+      data: {
+        labels: ['Used', 'Remaining'],
+        datasets: [{
+          data: data, // Score and remaining percentage
+          backgroundColor: ['#4CAF50', '#E0E0E0'], // Green for used, grey for remaining
+          borderWidth: 0, // No border
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '70%',
+        plugins: {
+          legend: {
+            display: false // Hide legend
+          },
+          tooltip: {
+            enabled: false // Hide tooltips
+          }
+        },
+        animation: {
+          animateRotate: true,
+          animateScale: true
+        }
+      }
+    });
+
+    // Draw shadows manually
+    ptx.save();
+    ptx.shadowColor = 'rgba(0, 0, 0, 0.3)'; // Shadow color
+    ptx.shadowBlur = 10; // Shadow blur size
+    ptx.shadowOffsetX = 5; // Horizontal shadow offset
+    ptx.shadowOffsetY = 5; // Vertical shadow offset
+
+    // Render the chart
+    chart.render();
+
+    // Restore context
+    ptx.restore();
+  }
+
+  // Use the sustainability score for drawing
+  drawDoughnutWithShadow(ptx, [sustainabilityScoreValue, 100 - sustainabilityScoreValue]);
+</script>
+
+
 </body>
 </html>
