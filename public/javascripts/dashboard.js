@@ -2,6 +2,9 @@
 const ctx = document.getElementById('categoryChart').getContext('2d');
 const ptx = document.getElementById('sustainabilityChart').getContext('2d');
 
+Chart.defaults.color = '#1d1d1d';
+
+
 // Dummy data passed from the server (can be changed to real data in the future)
 const categoryData = {
   shirts: 5,

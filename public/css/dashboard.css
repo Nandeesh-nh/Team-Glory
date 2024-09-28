@@ -2,12 +2,12 @@
 body {
     font-family: "Noto Sans", sans-serif;
     margin: 0;
-    padding: 0;
-    background: rgb(34,154,195);
-    background: -moz-linear-gradient(0deg, rgba(34,154,195,1) 0%, rgba(181,101,167,1) 85%);
-    background: -webkit-linear-gradient(0deg, rgba(34,154,195,1) 0%, rgba(181,101,167,1) 85%);
-    background: linear-gradient(0deg, rgba(34,154,195,1) 0%, rgba(181,101,167,1) 85%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#229ac3",endColorstr="#b565a7",GradientType=1);
+    background: rgb(167,164,255);
+    background: -moz-linear-gradient(349deg, rgba(167,164,255,1) 14%, rgba(181,101,167,1) 78%);
+    background: -webkit-linear-gradient(349deg, rgba(167,164,255,1) 14%, rgba(181,101,167,1) 78%);
+    background: linear-gradient(349deg, rgba(167,164,255,1) 14%, rgba(181,101,167,1) 78%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a7a4ff",endColorstr="#b565a7",GradientType=1);
+    background-attachment: fixed;
 }
 
 .container {
@@ -74,7 +74,7 @@ form label {
     font-weight: bold;
     margin-top: 10px;
     display: block;
-    color: #494949;
+    color: #1d1d1d;
 }
 
 form input,
@@ -88,7 +88,7 @@ form select {
 }
 
 form button {
-    background-color: #4CAF50;
+    background-color: #D2FF72;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -97,7 +97,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #45a049;
+    background-color: #15B392;
 }
 
 /* Table Styling */
@@ -148,7 +148,7 @@ table .btn:hover {
     width: 50%;
     float: left;
     margin-right: 20px;
-    background-color: #2d2d2d;
+    background-color: #1a1a1a;
     padding: 20px;
     border-radius: 8px;
 }
@@ -156,25 +156,25 @@ table .btn:hover {
 #model-viewer {
     width: 100%;
     height: 400px;
-    border: 1px solid #2d2d2d;
+    border: 1px solid #1a1a1a;
 }
 
 /* Dashboard Styling */
 .dashboard-section {
     margin-top: 20px;
     padding: 20px;
-    background-color: #bdbdbd75;
+    background-color: #00000023;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px); 
+    backdrop-filter: blur(20px); 
 }
 
 .dashboard-section h2 {
-    color: #2d2d2d;
+    color: #1d1d1d;
 }
 
 .dashboard-section p {
-    color: #393939;
+    color: #292929;
 }
 
 canvas {
@@ -187,14 +187,14 @@ canvas {
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: #D2FF72;
     color: white;
     text-decoration: none;
     border-radius: 4px;
 }
 
 .btn:hover {
-    background-color: #218838;
+    background-color: #15B392;
 }
 
 /* Clearfix */
