@@ -23,7 +23,7 @@ router.post("/signup",wrapAsync(async(req,res)=>{
             if(err){
                 next(err);
             }
-            req.flash("success" , "welcome to WanderLust");
+            req.flash("success" , "welcome to Wardrobe Manegement");
             res.redirect("/");
         })
     }

@@ -4,10 +4,10 @@ const User = require("../models/user");
 const wrapAsync=require('../utils/wrapAsync.js');
 const ExpressError=require('../utils/ExpressError.js')
 const passport=require("passport")
-const {saveRedirectUrl} = require("../middleware.js");
+const {saveRedirectUrl,isLoggedIn} = require("../middleware.js");
 
 
-router.get('/', (req,res) => {
+router.get('/',isLoggedIn, (req,res) => {
     const dashboardData = {
         totalItems: 15,
         mostUsedItem: { name: 'Blue Jeans', usageCount: 10 },
