@@ -9,14 +9,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<% layout('./layouts/boilerplate') -%>
 
 </head>
 <body>
   <div class="container">
-    <nav class="navbar">
+    <div class="header">
       <h1 style="font-size: 36px;">Wardrobe Dashboard</h1>
-      <a href="/" class="home-button">Home</a>
-    </nav>
+    </div>
+      
 
 
     <!-- Grid Layout -->
@@ -24,7 +25,7 @@
       <!-- Left Section: Wardrobe Overview -->
       <div class="wardrobe-overview">
         <div class="dashboard-section dbs-overview">
-          <h1 style="color: #333333e1;">Wardrobe Overview</h1>
+          <h1 style="color: #333333e1; font-size: 24px;">Wardrobe Overview</h1>
           <h2 style="color: #3c3c3ce1; margin-bottom: 0px;">Hi, <%=data.user.username%></h2>
           <p style="margin-top: 1px;"><%=data.user.email %></p>
           <p><strong>Total Items:</strong> <%= data.totalItems %></p>

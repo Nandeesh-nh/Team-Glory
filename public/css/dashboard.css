@@ -3,12 +3,11 @@ body {
     font-family: "Noto Sans", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #bdbdab;;
-    background-image: url('/images/wall.jpg') ;
-    background-size: cover; /* Resize the background image to cover the entire container */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent the background image from repeating */
-
+    background: rgb(34,154,195);
+    background: -moz-linear-gradient(0deg, rgba(34,154,195,1) 0%, rgba(181,101,167,1) 85%);
+    background: -webkit-linear-gradient(0deg, rgba(34,154,195,1) 0%, rgba(181,101,167,1) 85%);
+    background: linear-gradient(0deg, rgba(34,154,195,1) 0%, rgba(181,101,167,1) 85%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#229ac3",endColorstr="#b565a7",GradientType=1);
 }
 
 .container {
@@ -19,11 +18,20 @@ body {
    
 }
 
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 h1,
 h2 {
-    color: #cacaca;
+    color: #ffffffe7;
     font-weight: 600;
     margin-bottom: 10px;
+    font-size: 24px;
 }
 
 .grid-container {
@@ -33,7 +41,7 @@ h2 {
 }
  
 .dbs-overview{
-    min-height: 90%;
+    min-height: 96.5%;
 }
 .collection-overview{
     min-height: 70%;
@@ -135,27 +143,12 @@ table .btn:hover {
     justify-content: space-between;
 }
 
-.home-button{
-    text-decoration: none;
-    margin-bottom: 10px;
-    margin-right: 30px;
-    color: inherit;
-    color: #cacacac8;
-    font-size: 24px;
-    transition: text-shadow 0.25s;
-
-}
-.home-button:hover{
-    text-shadow: 0px 0px rgba(255, 255, 255, 0.859);
-}
-
-
 /* 3D Model Section */
 #model-container {
     width: 50%;
     float: left;
     margin-right: 20px;
-    background-color: #848484d2;
+    background-color: #2d2d2d;
     padding: 20px;
     border-radius: 8px;
 }
@@ -163,7 +156,7 @@ table .btn:hover {
 #model-viewer {
     width: 100%;
     height: 400px;
-    border: 1px solid #535353;
+    border: 1px solid #2d2d2d;
 }
 
 /* Dashboard Styling */
@@ -177,11 +170,11 @@ table .btn:hover {
 }
 
 .dashboard-section h2 {
-    color: #5b5b5b;
+    color: #2d2d2d;
 }
 
 .dashboard-section p {
-    color: #3f3f3f;
+    color: #393939;
 }
 
 canvas {
@@ -218,7 +211,7 @@ canvas {
 }
 
 .button {
-    background-color: #4c6baf; /* Green background */
+    background-color: rgb(34,154,195); /* Green background */
     border: none; /* Remove borders */
     color: white; /* White text */
     padding: 15px 32px; /* Some padding */
@@ -227,7 +220,7 @@ canvas {
     display: inline-block; /* Make the container fit the content */
     font-size: 16px; /* Set font size */
     margin: 4px 2px; /* Small margin around the button */
-    border: 2px solid #4c6baf ;
+    border: 2px solid rgb(34,154,195); ;
     transition-duration: 0.4s; /* Animation duration */
     cursor: pointer; /* Pointer cursor on hover */
     border-radius: 12px; /* Rounded corners */
@@ -235,6 +228,6 @@ canvas {
 
 .button:hover {
     background-color: white; /* White background on hover */
-    color: #4c6baf; /* Green text on hover */
-    border: 2px solid #4c6baf; /* Green border on hover */
+    color: rgb(34,154,195); /* Green text on hover */
+    border: 2px solid rgb(34,154,195); /* Green border on hover */
 }
