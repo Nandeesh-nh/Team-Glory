@@ -83,7 +83,7 @@ router.post('/add-item',isLoggedIn, async (req, res) => {
 
   try {
     await newItem.save(); // Save to MongoDB
-
+    req.flash("success","New item added");
     res.redirect('/wardrobe'); // Redirect to the wardrobe view after adding
   } catch (err) {
     res.status(500).send("Error adding new item");
@@ -96,7 +96,9 @@ router.post('/remove/:id', isLoggedIn, async (req, res) => {
     try {
       // Find the item by ID and delete it
       await WardrobeItem.findByIdAndDelete(itemId);
+      req.flash("success","Item removed");
       res.redirect('/wardrobe'); // Redirect to the wardrobe view after removing
+      
     } catch (err) {
       res.status(500).send("Error removing item");
     }
@@ -135,7 +137,7 @@ router.post('/remove/:id', isLoggedIn, async (req, res) => {
     try {
       const donatedItems = await WardrobeItem.find({ donated: true }).populate('userId');
        // Fetch donated items with user email
-  
+       req.flash("success","donation added");
       res.render('./pages/donatedItems.ejs', { donatedItems }); // Render items in the view
     } catch (err) {
       res.status(500).send("Error fetching donated items");
