@@ -25,9 +25,9 @@
       <!-- Left Section: Wardrobe Overview -->
       <div class="wardrobe-overview">
         <div class="dashboard-section dbs-overview">
-          <h1 style="color: #333333e1; font-size: 24px;">Wardrobe Overview</h1>
-          <h2 style="color: #3c3c3ce1; margin-bottom: 0px;">Hi, <%=data.user.username%></h2>
-          <p style="margin-top: 1px;"><%=data.user.email %></p>
+          <h1 style="color: #121212; font-size: 24px;">Wardrobe Overview</h1>
+          <h2 style="color: whitesmoke; margin-bottom: 0px;">Hi, <%=data.user.username%></h2>
+          <p style="margin-top: 1px; color: rgb(27, 27, 27);"><%=data.user.email %></p>
           <p><strong>Total Items:</strong> <%= data.totalItems %></p>
           <p><strong>Most Used Item:</strong> <%= data.mostUsedItem.name %> (Used <%= data.mostUsedItem.usage %> times)</p>
           <p><strong>Least Used Item:</strong> <%= data.leastUsedItem.name %> (Used <%= data.leastUsedItem.usage %> time)</p>
@@ -38,13 +38,13 @@
       <div class="right-section">
         <div class="right-grid">
           <div class="dashboard-section">
-            <h2 style="color: #333333e1;"> Category Breakdown</h2>
+            <h2 style="color: #1d1d1d;"> Category Breakdown</h2>
             <canvas id="categoryChart" style="max-height: 200px;"></canvas>
           </div>
 
           <div class="dashboard-section">
-            <h2 style="color: #333333e1;">Sustainability Score</h2>
-            <canvas id="sustainabilityChart" style="max-height: 200px;"></canvas>
+            <h2 style="color: #1d1d1d;">Sustainability Score</h2>
+            <canvas id="sustainabilityChart" style="max-height: 200px;" class="canvas-responsive"></canvas>
             <p>Your wardrobe's sustainability score is <strong><%= data.sustainabilityScore %> out of 100</strong>.</p>
             <div class ="progress-bar">
               <div class="outer">
