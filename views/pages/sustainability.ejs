@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sustainable Wardrobe Tips</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+      body {
+        background-image: url('images/background.jpg'); 
+        background-size: cover; /* Make the background cover the entire area */
+        background-position: center; /* Center the background image */
+        background-attachment: fixed; /* Make the background stay fixed while scrolling */
+        background-repeat: no-repeat; /* Prevent the image from repeating */
+        background-color: #e0f7fa;
+        font-family: 'Poppins', sans-serif;
+        padding: 2rem;
+      }
+      .header {
+        background: rgba(92, 208, 152, 0.7); /* Make the background semi-transparent */
+        backdrop-filter: blur(5px); /* Apply backdrop filter for a blur effect */
+        text-align: center;
+        position: sticky;
+        top: 5px;
+        right:0px;
+        left: 0px;
+        font-size: 3rem;
+        padding: 0px 0px 0px 0px;
+        border-radius: 20px;
+        color: #091a13c7;
+        margin-bottom: 2rem;
+        font-weight: bold;
+        animation: fadeIn 2s ease-in-out;
+        z-index: 2;
+      }
+      .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        animation: fadeInUp 1s ease-in-out;
+      }
+      .tip-container {
+        background: rgba(255, 255, 255, 0.8); /* Make the background semi-transparent */
+        backdrop-filter: blur(5px); /* Apply backdrop filter for a blur effect */
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .tip-container:hover {
+        transform: scale(1.05);
+      }
+      .tip-icon {
+        font-size: 3rem;
+        color: #004d40;
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        opacity: 0.1;
+      }
+      .tip-title {
+        font-size: 1.5rem;
+        color: #1b2b29d4;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        position: relative;
+      }
+      .tip-text {
+        font-size: 1rem;
+        color: #0e8d6f;
+      }
+      .call-to-action {
+        text-align: center;
+        margin-top: 3rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #01a793d2;
+        animation: fadeInUp 1.5s ease-in-out;
+      }
+      .call-to-action a {
+        color: #b1f8efe1;
+        text-decoration: underline;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 768px) {
+        .tips-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">Sustainable Wardrobe Tips</div>
+
+    <div class="container tips-grid">
+      <!-- Tip 1 -->
+      <div class="tip-container">
+        <i class="fas fa-leaf tip-icon"></i>
+        <div class="tip-title">1. Buy Less, Choose Well</div>
+        <p class="tip-text">
+          Focus on buying quality over quantity. Choosing well-made, timeless
+          pieces reduces waste and ensures your wardrobe is built to last.
+        </p>
+      </div>
+
+      <!-- Tip 2 -->
+      <div class="tip-container">
+        <i class="fas fa-recycle tip-icon"></i>
+        <div class="tip-title">2. Embrace Second-Hand</div>
+        <p class="tip-text">
+          Thrift shopping helps you find unique pieces while reducing the demand
+          for fast fashion. Vintage shops and second-hand platforms are great
+          alternatives to buying new.
+        </p>
+      </div>
+
+      <!-- Tip 3 -->
+      <div class="tip-container">
+        <i class="fas fa-tools tip-icon"></i>
+        <div class="tip-title">3. Repair and Upcycle</div>
+        <p class="tip-text">
+          Learn simple repair techniques to prolong the life of your clothes, or
+          get creative by upcycling old garments into something new.
+        </p>
+      </div>
+
+      <!-- Tip 4 -->
+      <div class="tip-container">
+        <i class="fas fa-tshirt tip-icon"></i>
+        <div class="tip-title">4. Proper Clothing Care</div>
+        <p class="tip-text">
+          Washing your clothes less often and at lower temperatures helps reduce
+          wear and tear. Air-drying instead of tumble drying also saves energy.
+        </p>
+      </div>
+
+      <!-- Tip 5 -->
+      <div class="tip-container">
+        <i class="fas fa-fabric tip-icon"></i>
+        <div class="tip-title">5. Opt for Sustainable Fabrics</div>
+        <p class="tip-text">
+          Choose fabrics like organic cotton, hemp, and recycled polyester, which
+          have a smaller environmental footprint compared to conventional materials.
+        </p>
+      </div>
+
+      <!-- Tip 6 -->
+      <div class="tip-container">
+        <i class="fas fa-gift tip-icon"></i>
+        <div class="tip-title">6. Donate or Recycle Clothes</div>
+        <p class="tip-text">
+          Instead of throwing away old clothes, donate them to charity or recycle
+          them through textile recycling programs to reduce waste.
+        </p>
+      </div>
+
+      <!-- Tip 7 -->
+      <div class="tip-container">
+        <i class="fas fa-handshake tip-icon"></i>
+        <div class="tip-title">7. Swap Clothes with Friends</div>
+        <p class="tip-text">
+          Organize clothing swaps with friends or at local events to refresh your
+          wardrobe without buying anything new. It’s sustainable and fun!
+        </p>
+      </div>
+
+      <!-- Tip 8 -->
+      <div class="tip-container">
+        <i class="fas fa-hand-holding-heart tip-icon"></i>
+        <div class="tip-title">8. Support Ethical Brands</div>
+        <p class="tip-text">
+          Buy from brands that prioritize sustainability, ethical practices, and
+          fair wages for workers to ensure your purchases align with eco-friendly
+          values.
+        </p>
+      </div>
+
+      <!-- Tip 9 -->
+      <div class="tip-container">
+        <i class="fas fa-briefcase tip-icon"></i>
+        <div class="tip-title">9. Build a Capsule Wardrobe</div>
+        <p class="tip-text">
+          Minimize your wardrobe to versatile, essential pieces that work well
+          together. This reduces the need for unnecessary purchases and promotes
+          mindful consumption.
+        </p>
+      </div>
+    </div>
+
+    <!-- Call to action -->
+    <div class="call-to-action">
+      Ready to make your wardrobe more sustainable? <br />
+      <a href="#">Learn more</a> about eco-friendly fashion practices.
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

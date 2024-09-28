@@ -82,4 +82,8 @@ router.get('/dashboard', (req,res) => {
     res.render('../views/pages/dashboard.ejs', {data: dashboardData})
 })
 
+router.get('/sustainability', (req,res) => {
+    res.render('../views/pages/sustainability.ejs')
+})
+
 module.exports = router; 
