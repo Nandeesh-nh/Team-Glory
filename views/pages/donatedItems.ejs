@@ -1,0 +1,56 @@
+<% layout('./layouts/boilerplate') -%>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/donation.css"> <!-- Your custom CSS -->
+<style>
+    .maxing {
+       max-height: 10% !important;
+    }
+</style>
+
+<body style="background-color: #E8F5E9;">
+    <div class="container my-4">
+        <h1 class="text-center text-primary">Donated Items</h1>
+        <p class="subheading text-center text-muted">Communities, hostels, and NGOs can contact the donors listed below to collect the clothes.</p>
+        
+        <div class="alert alert-info">
+            <p>Welcome to our donation page! All items listed here have been generously donated by users wishing to share their belongings with those in need. Each item represents a kind gesture from individuals committed to making a positive impact in their community.</p>
+            <p>Our donors have thoughtfully selected items that they believe will benefit others. Whether it's clothing for everyday use or special occasions, these donations can help individuals and families find the support they need. Each item has a story, and through this platform, we hope to connect those stories with new owners.</p>
+            <p>We encourage communities, hostels, and NGOs to reach out directly to the donors listed below. By facilitating this connection, we aim to ensure that these items find a good home where they will be appreciated and utilized. Your efforts to help collect and distribute these donations are invaluable and greatly appreciated.</p>
+        </div>
+
+        <div class="row">
+            <% if (donatedItems.length > 0) { %>
+                <% donatedItems.forEach(item => { %>
+                    <div class="col-md-3 mb-4 maxing">
+                        <div class="card" style="background-color: #FFF; border: 1px solid #4CAF50; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                            <img src="<%= item.image %>" alt="<%= item.category %>" class="card-img-top" style="border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                            <div class="card-body">
+                                <h5 class="card-title text-center" style="font-weight: bold; color: #4CAF50;"><%= item.category %></h5>
+                                <p class="card-text"><strong>Color:</strong> <%= item.color %></p>
+                                <p class="card-text"><strong>Material:</strong> <%= item.material %></p>
+                                <p class="card-text"><strong>Usage Count:</strong> <%= item.usage %></p>
+                                <p class="card-text"><strong>Donated By:</strong> <%= item.userId.username %></p>
+                                <p class="card-text"><strong>Contact:</strong> <%= item.userId.email %></p>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div class="col-12 text-center">
+                    <p>No items available for donation at this time.</p>
+                </div>
+            <% } %>
+        </div>
+
+        <footer class="text-center mt-4">
+            <div class="alert alert-secondary">
+                <p>Thank you for supporting our community!</p>
+                <p>Contact <strong>Wardrobe Manager</strong> to collect the donated items.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
