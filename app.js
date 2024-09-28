@@ -85,6 +85,7 @@ app.use((req,res,next)=>{
     next();
 })
 
+
 app.get("/" , (req,res)=>{
     res.render("./pages/home.ejs")
 })
@@ -93,6 +94,9 @@ app.use("/dashboard",dashboardRouter)
 app.use("/sustainability",susRouter)
 app.use("/wardrobe", wardrobeRoutes);
 
+app.get("*",(req,res)=>{
+    res.render("./pages/404.ejs")
+})
 
 
 app.use((err,req,res,next)=>{
