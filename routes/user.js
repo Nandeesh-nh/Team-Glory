@@ -43,7 +43,7 @@ router.post("/login",saveRedirectUrl,passport.authenticate("local",
     failureRedirect:"/login", 
     failureFlash:true,
     }),async(req,res)=>{
-        req.flash("success","Welcome back to WanderLust!");
+        req.flash("success","Welcome back to Wardrobe Manegement!");
         let redirectUrl = res.locals.redirectUrl || "/";
         res.redirect(redirectUrl);
 })
@@ -60,7 +60,6 @@ router.get("/logout", (req,res)=>{
         res.redirect("/");
 
     });
-
 });
 
 
