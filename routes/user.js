@@ -23,7 +23,7 @@ router.post("/signup",wrapAsync(async(req,res)=>{
             if(err){
                 next(err);
             }
-            req.flash("success" , "welcome to Wardrobe Manegement");
+            req.flash("success" , "welcome to Wardrobe Manager");
             res.redirect("/");
         })
     }
@@ -43,7 +43,7 @@ router.post("/login",saveRedirectUrl,passport.authenticate("local",
     failureRedirect:"/login", 
     failureFlash:true,
     }),async(req,res)=>{
-        req.flash("success","Welcome back to Wardrobe Manegement!");
+        req.flash("success","Welcome back to Wardrope Manager!");
         let redirectUrl = res.locals.redirectUrl || "/";
         res.redirect(redirectUrl);
 })
