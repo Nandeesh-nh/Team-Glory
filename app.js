@@ -12,8 +12,10 @@ const LocalStrategy = require("passport-local");
 const session = require("express-session");
 const User = require("./models/user");
 const flash =require("connect-flash");
-
+const { WardrobeItem, calculateSustainabilityPoints }=require("./models/WardrobeItem.js")
 const userRouter=require("./routes/user.js")
+const wardrobeRoutes=require("./routes/wardrobe.js")
+const bodyParser = require('body-parser');
 
 const ExpressError=require('./utils/ExpressError.js')
 
@@ -21,6 +23,8 @@ app.set('view engine' , 'ejs');
 app.set("views", path.join(__dirname , "views"));
 app.engine('ejs', ejsMate);
 
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "/public")));
@@ -43,7 +47,7 @@ const sessionOptions ={
     store,
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: true, 
     cookie: {
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7,
@@ -84,6 +88,7 @@ app.get("/" , (req,res)=>{
     res.render("./pages/home.ejs")
 })
 app.use("/",userRouter);
+app.use("/wardrobe", wardrobeRoutes);
 
 app.all('*',(req,res,next)=>{
     next(new ExpressError(404,"page not found!"));
