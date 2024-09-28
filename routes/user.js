@@ -63,27 +63,6 @@ router.get("/logout", (req,res)=>{
 
 });
 
-router.get('/dashboard', (req,res) => {
 
-    const dashboardData = {
-        totalItems: 15,
-        mostUsedItem: { name: 'Blue Jeans', usageCount: 10 },
-        leastUsedItem: { name: 'Red Jacket', usageCount: 1 },
-        categoryBreakdown: {
-          shirts: 5,
-          pants: 4,
-          shoes: 3,
-          accessories: 2,
-          outerwear: 1,
-        },
-        sustainabilityScore: 78, // Dummy sustainability score out of 100
-      };
-    
-    res.render('../views/pages/dashboard.ejs', {data: dashboardData})
-})
-
-router.get('/sustainability', (req,res) => {
-    res.render('../views/pages/sustainability.ejs')
-})
 
 module.exports = router; 

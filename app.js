@@ -14,6 +14,8 @@ const User = require("./models/user");
 const flash =require("connect-flash");
 
 const userRouter=require("./routes/user.js")
+const dashboardRouter=require("./routes/dashboard.js")
+const susRouter =require("./routes/sustainability.js")
 
 const ExpressError=require('./utils/ExpressError.js')
 
@@ -83,6 +85,8 @@ app.get("/" , (req,res)=>{
     res.render("./pages/home.ejs")
 })
 app.use("/",userRouter);
+app.use("/dashboard",dashboardRouter)
+app.use("/sustainability",susRouter)
 
 app.all('*',(req,res,next)=>{
     next(new ExpressError(404,"page not found!"));
