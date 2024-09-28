@@ -13,6 +13,50 @@ router.get('/',isLoggedIn,async (req, res) => {
   }
 });
 
+// Search route, filtering by both userId and search query
+router.get('/search', async (req, res) => {
+  const searchQuery = req.query.query || ""; // Default to empty string if no query
+  const userId = req.user._id;  // Assuming req.user contains the authenticated user's details
+
+  try {
+    // Retrieve all items for the user regardless of the search
+    const noitem = await WardrobeItem.find({ userId: userId });
+
+    // Perform the search by filtering based on userId and search query
+    const wardrobeItems = await WardrobeItem.find({
+      userId: userId,  // Match the user's ID
+      $or: [
+        { category: { $regex: searchQuery, $options: 'i' } },  // case-insensitive search
+        { color: { $regex: searchQuery, $options: 'i' } },
+        { material: { $regex: searchQuery, $options: 'i' } },
+        { occasion: { $regex: searchQuery, $options: 'i' } },
+        { season: { $regex: searchQuery, $options: 'i' } }
+      ]
+    });
+    
+    if (wardrobeItems.length === 0) {
+      // No items found - set the flash message
+      req.flash('error', 'No items found in your wardrobe.');
+      
+      return res.render('./pages/wardrobe.ejs', { 
+        wardrobe: noitem 
+      });
+    }
+
+    // Render the wardrobe page with the search results and all items
+    req.flash("success","item found in your")
+    res.render('./pages/wardrobe.ejs', { 
+      wardrobe: wardrobeItems  
+    });
+  } catch (err) {
+    console.error('Search Error:', err);
+    req.flash('error', 'An error occurred while searching.');
+    return res.render("./pages/404.ejs"); // Optionally render a 404 or error page
+  }
+});
+
+
+
 // POST /wardrobe/add-item - Add a new item
 router.post('/add-item',isLoggedIn, async (req, res) => {
   const {category, color, usage, material, donated, occasion, season, image } = req.body;

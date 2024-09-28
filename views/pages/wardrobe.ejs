@@ -181,6 +181,22 @@
         .donate-button:hover {
             background-color: #f39c12;
         }
+        /* Search Box Styling */
+#search {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#search:focus {
+    border-color: #3498db;
+    outline: none;
+}
 
 
         /* Responsive Design */
@@ -195,6 +211,7 @@
     </style>
 </head>
 <body>
+    
     <div class="container">
         <h1>Wardrobe Manager</h1>
 
@@ -293,6 +310,21 @@
                 </div>
             </form>
         </div>
+         <!-- Search Form -->
+<div class="card">
+    <form action="/wardrobe/search" method="GET" style="margin-bottom: 20px;">
+        <div class="form-group" style="flex: 1 1 100%;">
+            <input type="text" id="search" name="query" placeholder="Search your wardrobe..." required>
+        </div>
+        <div class="form-group" style="flex: 1 1 100%;">
+            <button type="submit">Search</button>
+        </div>
+       
+    </form>
+    <form action="/wardrobe" method="GET" style="display:inline;"></form>
+        <button type="submit">Remove Filters</button>
+    </form>
+</div>
 
         <!-- Wardrobe Table -->
         <div class="card">
