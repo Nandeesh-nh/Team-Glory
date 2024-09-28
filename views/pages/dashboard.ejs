@@ -28,11 +28,12 @@
         <div class="right-grid">
           <div class="dashboard-section">
             <h2>Category Breakdown</h2>
-            <canvas id="categoryChart"></canvas>
+            <canvas id="categoryChart" style="max-height: 200px;"></canvas>
           </div>
 
           <div class="dashboard-section">
             <h2>Sustainability Score</h2>
+            <canvas id="sustainabilityChart" style="max-height: 200px;"></canvas>
             <p>Your wardrobe's sustainability score is <strong><%= data.sustainabilityScore %> out of 100</strong>.</p>
             <div class ="progress-bar">
               <div class="outer">
@@ -53,6 +54,9 @@
     </div>
 
   </div>
+  <script>
+     const sustainabilityScoreValue = 78;
+  </script>
   <script src="javascripts/dashboard.js"></script>
 </body>
 </html>
