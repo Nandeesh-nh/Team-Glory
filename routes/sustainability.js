@@ -6,7 +6,7 @@ const ExpressError=require('../utils/ExpressError.js')
 const passport=require("passport")
 const {saveRedirectUrl} = require("../middleware.js");
 
-router.get('/sustainability', (req,res) => {
+router.get('/', (req,res) => {
     res.render('../views/pages/sustainability.ejs')
 })
 

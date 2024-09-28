@@ -6,17 +6,27 @@
   <title>Wardrobe Dashboard</title>
   <link rel="stylesheet" href="css/dashboard.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <div class="container">
-    <h1>Wardrobe Dashboard</h1>
+    <nav class="navbar">
+      <h1 style="font-size: 36px;">Wardrobe Dashboard</h1>
+      <a href="/" class="home-button">Home</a>
+    </nav>
+
 
     <!-- Grid Layout -->
     <div class="grid-container">
       <!-- Left Section: Wardrobe Overview -->
       <div class="wardrobe-overview">
         <div class="dashboard-section dbs-overview">
-          <h2>Wardrobe Overview</h2>
+          <h1 style="color: #333333e1;">Wardrobe Overview</h1>
+          <h2 style="color: #3c3c3ce1; margin-bottom: 0px;">Hi, <%=data.user.username%></h2>
+          <p style="margin-top: 1px;"><%=data.user.email %></p>
           <p><strong>Total Items:</strong> <%= data.totalItems %></p>
           <p><strong>Most Used Item:</strong> <%= data.mostUsedItem.name %> (Used <%= data.mostUsedItem.usageCount %> times)</p>
           <p><strong>Least Used Item:</strong> <%= data.leastUsedItem.name %> (Used <%= data.leastUsedItem.usageCount %> time)</p>
@@ -27,12 +37,12 @@
       <div class="right-section">
         <div class="right-grid">
           <div class="dashboard-section">
-            <h2>Category Breakdown</h2>
+            <h2 style="color: #333333e1;"> Category Breakdown</h2>
             <canvas id="categoryChart" style="max-height: 200px;"></canvas>
           </div>
 
           <div class="dashboard-section">
-            <h2>Sustainability Score</h2>
+            <h2 style="color: #333333e1;">Sustainability Score</h2>
             <canvas id="sustainabilityChart" style="max-height: 200px;"></canvas>
             <p>Your wardrobe's sustainability score is <strong><%= data.sustainabilityScore %> out of 100</strong>.</p>
             <div class ="progress-bar">
@@ -43,12 +53,13 @@
           </div>
         </div>
         <div class="right-bottom-section">
-          <div class="dashboard-section dbs-overview">
-            <h2>Accessories</h2>
-            <button class="accessories-button">Watches</button>
-            <button class="accessories-button">Watches</button>
-            <button class="accessories-button">Watches</button>
-            <button class="accessories-button">Watches</button>
+          <div class="dashboard-section collection-overview">
+            <h2>Wardrobe Collection</h2>
+            <a href="#" class="button">Watches</a>
+            <a href="#" class="button">Shirts</a>
+            <a href="#" class="button">Pants</a>
+            <a href="#" class="button">Tops</a>
+            <a href="#" class="button">Shoes</a>
           </div>
       </div>
     </div>

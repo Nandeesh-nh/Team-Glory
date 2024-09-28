@@ -8,7 +8,6 @@ const {saveRedirectUrl} = require("../middleware.js");
 
 
 router.get('/', (req,res) => {
-
     const dashboardData = {
         totalItems: 15,
         mostUsedItem: { name: 'Blue Jeans', usageCount: 10 },
@@ -20,7 +19,9 @@ router.get('/', (req,res) => {
           accessories: 2,
           outerwear: 1,
         },
-        sustainabilityScore: 78, // Dummy sustainability score out of 100
+        user: {username: req.user.username, email: req.user.email, userId: req.user._id},
+        sustainabilityScore: 78,
+         // Dummy sustainability score out of 100
       };
     
     res.render('../views/pages/dashboard.ejs', {data: dashboardData})
