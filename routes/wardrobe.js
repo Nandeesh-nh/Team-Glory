@@ -72,6 +72,19 @@ router.post('/remove/:id', isLoggedIn, async (req, res) => {
       res.status(500).send("Error updating usage count");
     }
   });
+  router.post('/donate/:id', isLoggedIn, async (req, res) => {
+    const itemId = req.params.id;
   
+    try {
+      // Find the item by ID and update its donated status only if it belongs to the logged-in user
+      await WardrobeItem.findOneAndUpdate(
+        { _id: itemId, userId: req.user._id },
+        { donated: true }
+      );
+      res.redirect('/wardrobe'); // Redirect to the wardrobe view after donating
+    } catch (err) {
+      res.status(500).send("Error donating item");
+    }
+  });  
 
 module.exports = router;

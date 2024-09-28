@@ -178,6 +178,16 @@
             background-color: #c0392b;
         }
 
+        .donate-button {
+            background-color: #f1c40f;
+            color: white;
+        }
+
+        .donate-button:hover {
+            background-color: #f39c12;
+        }
+
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .form-group {
@@ -300,7 +310,6 @@
                         <th>Color</th>
                         <th>Material</th>
                         <th>Usage</th>
-                        <th>Donated</th>
                         <th>Occasion</th>
                         <th>Season</th>
                         <th>Actions</th>
@@ -314,7 +323,6 @@
                             <td><%= item.color %></td>
                             <td><%= item.material %></td>
                             <td><%= item.usage %></td>
-                            <td><%= item.donated ? 'Yes' : 'No' %></td>
                             <td><%= item.occasion %></td>
                             <td><%= item.season %></td>
                             <td>
@@ -325,6 +333,22 @@
                                     <form action="/wardrobe/remove/<%= item.id %>" method="POST">
                                         <button type="submit" class="remove-button">Remove</button>
                                     </form>
+                                    <% if (!item.donated) { %>
+                                    <form action="/wardrobe/donate/<%= item.id %>" method="POST">
+                                        <button type="submit" class="donate-button">Donate</button>
+                                    </form>
+                                    <% } else { %>
+                                        <button type="submit" style="background-color: #e0e0e0;
+                                        color: #a0a0a0;
+                                        font-weight: bold;
+                                        padding: 10px 20px;
+                                        border: none;
+                                        border-radius: 8px;
+                                        cursor: not-allowed;
+                                        transition: background-color 0.3s, color 0.3s;
+                                        font-size: 1em;
+                                    " disabled class="donate-button">Donated</button>
+                                    <% } %>
                                 </div>
                             </td>
                         </tr>
