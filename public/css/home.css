@@ -37,7 +37,12 @@ body {
 
 .hero h1 {
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 800;
+    
+}
+.hero p{
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 .hero .btn {
