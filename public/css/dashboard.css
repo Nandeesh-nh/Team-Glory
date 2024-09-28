@@ -9,14 +9,15 @@ body {
 .container {
     width: 90%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
+    height: 100%;
 }
 
 h1,
 h2 {
     color: #333;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .grid-container {
@@ -26,7 +27,7 @@ h2 {
 }
  
 .dbs-overview{
-    height: 100%;
+    min-height: 100%;
 }
 
 .wardrobe-overview {
