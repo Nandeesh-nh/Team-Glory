@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wardrobe Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Wardrobe Dashboard</h1>
+
+    <!-- Wardrobe Overview -->
+    <div class="dashboard-section">
+      <h2>Wardrobe Overview</h2>
+      <p><strong>Total Items:</strong> <%= data.totalItems %></p>
+      <p><strong>Most Used Item:</strong> <%= data.mostUsedItem.name %> (Used <%= data.mostUsedItem.usageCount %> times)</p>
+      <p><strong>Least Used Item:</strong> <%= data.leastUsedItem.name %> (Used <%= data.leastUsedItem.usageCount %> time)</p>
+    </div>
+
+    <!-- Category Breakdown -->
+    <div class="dashboard-section">
+      <h2>Category Breakdown</h2>
+      <canvas id="categoryChart"></canvas>
+    </div>
+
+    <!-- Sustainability Insights -->
+    <div class="dashboard-section">
+      <h2>Sustainability Score</h2>
+      <p>Your wardrobe's sustainability score is <strong><%= data.sustainabilityScore %> out of 100</strong>.</p>
+    </div>
+
+  </div>
+
+  <script src="javascripts\dashboard.js"></script>
+</body>
+</html>

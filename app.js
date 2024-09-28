@@ -25,7 +25,6 @@ app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "/public")));
 
-
 const dbURL = process.env.ATLASDB_URL 
 
 const store = MongoStore.create({
