@@ -7,7 +7,7 @@ const passport = require("passport");
 const { saveRedirectUrl, isLoggedIn } = require("../middleware.js");
 const { WardrobeItem, calculateSustainabilityPoints } = require('../models/WardrobeItem');
 
-router.get('/', async (req, res) => {
+router.get('/',isLoggedIn, async (req, res) => {
   try {
     const userId = req.user._id; // Assuming you have user info in req.user
 
