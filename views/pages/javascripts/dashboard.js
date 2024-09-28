@@ -1,7 +1,7 @@
-// Get the context of the canvas element for the category breakdown chart
+// Get the context of the canvas elements
 const ctx = document.getElementById('categoryChart').getContext('2d');
 
-// Dummy data passed from the server (can be changed to real data in the future)
+// Dummy data for category data (you can replace this with real data)
 const categoryData = {
   shirts: 5,
   pants: 4,
@@ -10,7 +10,7 @@ const categoryData = {
   outerwear: 1,
 };
 
-// Create the chart
+// Create the pie chart for category breakdown
 const categoryChart = new Chart(ctx, {
   type: 'pie',
   data: {
