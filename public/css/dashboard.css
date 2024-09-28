@@ -231,3 +231,50 @@ canvas {
     color: rgb(34,154,195); /* Green text on hover */
     border: 2px solid rgb(34,154,195); /* Green border on hover */
 }
+
+@media (max-width : 750px){
+    .grid-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .right-section {
+        display: flex;
+        flex-direction: column;
+    }
+    .right-grid {
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+@media (min-width:1294px) and (max-width: 1378px){
+    .grid-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .right-section {
+        display: flex;
+        flex-direction: column;
+    }
+    .right-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Left section is narrower than the right */
+        gap: 20px; /* Space between the sections */
+    }
+}
+@media (min-width:751px ) and (max-width: 1294px){
+    .grid-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .right-section {
+        display: flex;
+        flex-direction: column;
+    }
+    .right-grid {
+        display: flex;
+        flex-direction: row; /* Set the direction to row for horizontal layout */
+        width: 100%; /* Set a specific width for both columns */
+        justify-content:space-around; /* Distribute remaining space between columns */
+    }
+}
